@@ -230,11 +230,7 @@ def get_customer_detail(params: CustomerIdParam) -> CustomerDetail:
     return CustomerDetail(**dict(cust), subscriptions=[dict(s) for s in subs])  
   
   
-@mcp.tool(  
-    description=(  
-        "Detailed subscription view → invoices (with payments) + service incidents."  
-    )  
-)  
+@mcp.tool(description="Detailed subscription view with invoices (with payments) and service incidents.")  
 def get_subscription_detail(params: SubscriptionIdParam) -> SubscriptionDetail:  
     db = get_db()  
     sub = db.execute(  
